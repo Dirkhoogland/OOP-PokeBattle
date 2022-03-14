@@ -38,12 +38,15 @@
             this.Rdmgtakentxt = new System.Windows.Forms.Label();
             this.Lattacktxt = new System.Windows.Forms.Label();
             this.Ldmgtaken = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.midtxt = new System.Windows.Forms.Label();
+            this.Poptxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Rnametxt
             // 
             this.Rnametxt.AutoSize = true;
-            this.Rnametxt.Location = new System.Drawing.Point(616, 34);
+            this.Rnametxt.Location = new System.Drawing.Point(579, 21);
             this.Rnametxt.Name = "Rnametxt";
             this.Rnametxt.Size = new System.Drawing.Size(59, 20);
             this.Rnametxt.TabIndex = 0;
@@ -52,7 +55,7 @@
             // Rhitpointstxt
             // 
             this.Rhitpointstxt.AutoSize = true;
-            this.Rhitpointstxt.Location = new System.Drawing.Point(616, 55);
+            this.Rhitpointstxt.Location = new System.Drawing.Point(579, 42);
             this.Rhitpointstxt.Name = "Rhitpointstxt";
             this.Rhitpointstxt.Size = new System.Drawing.Size(112, 20);
             this.Rhitpointstxt.TabIndex = 1;
@@ -61,7 +64,7 @@
             // Rtypetxt
             // 
             this.Rtypetxt.AutoSize = true;
-            this.Rtypetxt.Location = new System.Drawing.Point(616, 84);
+            this.Rtypetxt.Location = new System.Drawing.Point(579, 71);
             this.Rtypetxt.Name = "Rtypetxt";
             this.Rtypetxt.Size = new System.Drawing.Size(109, 20);
             this.Rtypetxt.TabIndex = 2;
@@ -105,7 +108,7 @@
             // Rdmgtakentxt
             // 
             this.Rdmgtakentxt.AutoSize = true;
-            this.Rdmgtakentxt.Location = new System.Drawing.Point(736, 60);
+            this.Rdmgtakentxt.Location = new System.Drawing.Point(699, 47);
             this.Rdmgtakentxt.Name = "Rdmgtakentxt";
             this.Rdmgtakentxt.Size = new System.Drawing.Size(0, 20);
             this.Rdmgtakentxt.TabIndex = 7;
@@ -126,11 +129,41 @@
             this.Ldmgtaken.Size = new System.Drawing.Size(0, 20);
             this.Ldmgtaken.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(31, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Start";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // midtxt
+            // 
+            this.midtxt.AutoSize = true;
+            this.midtxt.Location = new System.Drawing.Point(356, 198);
+            this.midtxt.Name = "midtxt";
+            this.midtxt.Size = new System.Drawing.Size(42, 20);
+            this.midtxt.TabIndex = 11;
+            this.midtxt.Text = "Fight";
+            // 
+            // Poptxt
+            // 
+            this.Poptxt.AutoSize = true;
+            this.Poptxt.Location = new System.Drawing.Point(33, 60);
+            this.Poptxt.Name = "Poptxt";
+            this.Poptxt.Size = new System.Drawing.Size(0, 20);
+            this.Poptxt.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Poptxt);
+            this.Controls.Add(this.midtxt);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Ldmgtaken);
             this.Controls.Add(this.Lattacktxt);
             this.Controls.Add(this.Rdmgtakentxt);
@@ -161,5 +194,8 @@
         private Label Rdmgtakentxt;
         private Label Lattacktxt;
         private Label Ldmgtaken;
+        private Button button1;
+        private Label midtxt;
+        private Label Poptxt;
     }
 }
