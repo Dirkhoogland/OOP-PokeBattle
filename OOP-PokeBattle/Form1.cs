@@ -8,24 +8,72 @@ namespace OOP_PokeBattle
         {
             InitializeComponent();
         }
-        
-        //public partial class Pokemon 
-        //{
-        //    public static class pokemons
-        //    {
-        //        public static class Pikachu
-        //        {
+                public int Electricring(int Lhp)
+                {
+                    int schade = 50;
 
-        //        }
+                    this.Rdmgtakentxt.Text = "";
+                    this.Lattacktxt.Text = "";
 
-        //        public static class Charmeleon
-        //        {
+                    int rschade = (int)(schade / 10);
+                    Lhp = Lhp - rschade;
 
-        //        }
-        //    }
-        //}
+                    this.Lhitpointstxt.Text = $@"Hitpoints {Lhp} / {LhpS}";
+                    this.Ldmgtaken.Text = $@"Damage {rschade}";
+                    this.Rattacktxt.Text = "Electric ring";
+
+                    return Lhp;
+                }
+
+                public int Flare(int Rhp)
+                {
+                    int schade = 30;
+
+                    int Lschade = (int)(schade * 1.5);
+                    Rhp = Rhp - Lschade;
+                    this.Rhitpointstxt.Text = $@"Hitpoints {Rhp} / {RhpS}";
+                    this.Rdmgtakentxt.Text = $@"Damage {Lschade}";
+                    this.Lattacktxt.Text = "Flare";
+
+                    this.Ldmgtaken.Text = "";
+                    this.Rattacktxt.Text = "";
+
+                    return Rhp;
+                }
+
+                public int Pikapunch(int Lhp)
+                {
+                    int schade = 20;
+
+                    Lhp = Lhp - schade;
+
+
+                    this.Rdmgtakentxt.Text = "";
+                    this.Lattacktxt.Text = "";
+
+                    this.Lhitpointstxt.Text = $@"Hitpoints {Lhp} / {LhpS}";
+                    this.Ldmgtaken.Text = $@"Damage {schade}";
+                    this.Rattacktxt.Text = "Pikapunch";
+
+                    return Lhp;
+                }
+
+                public int Headbutt(int Rhp)
+                {
+                    int schade = 15;
+                    Rhp = Rhp - schade;
+                    this.Rhitpointstxt.Text = $@"Hitpoints {Rhp} / {RhpS}";
+                    this.Rdmgtakentxt.Text = $@"Damage {schade}";
+                    this.Lattacktxt.Text = "Headbutt";
+
+                    this.Ldmgtaken.Text = "";
+                    this.Rattacktxt.Text = "";
+
+                    return Rhp;
+                }
+
         static int RhpS = 60;
-
+        
         static int LhpS = 60;
 
         public int Rhp = 60;
@@ -51,7 +99,7 @@ namespace OOP_PokeBattle
             Fight();
 
         }
-
+        
         public void Fight()
         {
 
@@ -90,69 +138,7 @@ namespace OOP_PokeBattle
             return Rhp;
         }
 
-        public int Electricring(int Lhp)
-        {
-            int schade = 50;
-
-            this.Rdmgtakentxt.Text = "";
-            this.Lattacktxt.Text = "";
-
-            int rschade = (int)(schade / 10);
-            Lhp = Lhp - rschade;
-
-            this.Lhitpointstxt.Text = $@"Hitpoints {Lhp} / {LhpS}";
-            this.Ldmgtaken.Text = $@"Damage {rschade}";
-            this.Rattacktxt.Text = "Electric ring";
-
-            return Lhp;
-        }
-
-        public int Flare(int Rhp)
-        {
-            int schade = 30;
-
-            int Lschade = (int)(schade * 1.5);
-            Rhp = Rhp - Lschade;
-            this.Rhitpointstxt.Text = $@"Hitpoints {Rhp} / {RhpS}";
-            this.Rdmgtakentxt.Text = $@"Damage {Lschade}";
-            this.Lattacktxt.Text = "Flare";
-
-            this.Ldmgtaken.Text = "";
-            this.Rattacktxt.Text = "";
-
-            return Rhp;
-        }
-
-        public int Pikapunch(int Lhp)
-        {
-            int schade = 20;
-
-            Lhp = Lhp - schade;
-
-
-            this.Rdmgtakentxt.Text = "";
-            this.Lattacktxt.Text = "";
-
-            this.Lhitpointstxt.Text = $@"Hitpoints {Lhp} / {LhpS}";
-            this.Ldmgtaken.Text = $@"Damage {schade}";
-            this.Rattacktxt.Text = "Pikapunch";
-
-            return Lhp;
-        }
-
-        public int Headbutt(int Rhp)
-        {
-            int schade = 15;
-            Rhp = Rhp - schade;
-            this.Rhitpointstxt.Text = $@"Hitpoints {Rhp} / {RhpS}";
-            this.Rdmgtakentxt.Text = $@"Damage {schade}";
-            this.Lattacktxt.Text = "Headbutt";
-
-            this.Ldmgtaken.Text = "";
-            this.Rattacktxt.Text = "";
-
-            return Rhp;
-        }
+        
 
         public int getpopulation(int Population)
         {
