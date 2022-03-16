@@ -8,15 +8,15 @@ namespace OOP_PokeBattle
 {
     internal class Pikachu
     {
-        
+
         public string Name;
-        public string EnergyType;
+        public EnergyType EnergyType;
         public int Hitpoints;
         public int Attacks;
-        Weakness
-        Resistance
+        public Weakness Weakness;
+        public Resistance Resistance;
 
-        public Pikachu(string name, string EnergyType, int Hitpoints, int attacks, Weakness, Resistance)
+        public Pikachu(string name, EnergyType EnergyType, int Hitpoints, int attacks, Weakness Weakness, Resistance Resistance)
         {
             this.Name = name;
             this.EnergyType = EnergyType;
@@ -25,6 +25,8 @@ namespace OOP_PokeBattle
             this.Weakness = Weakness;
             this.Resistance = Resistance;
         }
-        Pikachu Pikachu1 = new Pikachu("Pikachu1", Lightning, 60, 2 , Water, Fighting);
+        
+
+        
     }
 }

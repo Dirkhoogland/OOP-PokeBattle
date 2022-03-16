@@ -17,7 +17,7 @@ namespace OOP_PokeBattle
             this.Value = Value; 
         }
 
-        EnergyType Lightning = new EnergyType("Lightning",10);
+        
 
     }
 }

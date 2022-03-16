@@ -17,9 +17,6 @@ namespace OOP_PokeBattle
             this.Value = Value; 
 
         }
-
-        Resistance Fighting = new Resistance("Fighting",20);
-        Resistance Lightning = new Resistance("Lightning",10);
         
     }
 }

@@ -17,7 +17,6 @@ namespace OOP_PokeBattle
             this.Modifier = Modifier;
         }
         
-        Weakness Fire = new Weakness("Fire",1.5);
-        Weakness Water = new Weakness("Water", 2);
+
     }
 }

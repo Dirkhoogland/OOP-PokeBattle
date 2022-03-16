@@ -15,8 +15,8 @@ namespace OOP_PokeBattle
             this.AttackName = attackName;
             this.Damage = Damage;
         }
-        Attack ElectricRing = new Attack("ElectricRing", 50);
-        Attack Pikapunch = new Attack("PikaPunch",20);
+        public Attack ElectricRing = new Attack("ElectricRing", 50);
+        public Attack Pikapunch = new Attack("PikaPunch",20);
 
 
 

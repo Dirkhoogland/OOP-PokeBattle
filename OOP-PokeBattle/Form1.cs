@@ -1,5 +1,7 @@
 
 
+using System.Diagnostics;
+
 namespace OOP_PokeBattle
 {
     public partial class Form1 : Form
@@ -7,6 +9,18 @@ namespace OOP_PokeBattle
         public Form1()
         {
             InitializeComponent();
+
+            Resistance Fighting = new Resistance("Fighting", 20);
+            Resistance Lightning = new Resistance("Lightning", 10);
+
+            Weakness Fire = new Weakness("Fire", 1.5);
+            Weakness Water = new Weakness("Water", 2);
+
+            EnergyType LightningE = new EnergyType("Lightning", 10);
+
+
+            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, 2, Water, Fighting);
+            Debug.WriteLine(Pikachu1.EnergyType.Name);
         }
                 public int Electricring(int Lhp)
                 {
