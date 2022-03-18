@@ -10,19 +10,30 @@ namespace OOP_PokeBattle
         {
             InitializeComponent();
 
-            Resistance Fighting = new Resistance("Fighting", 20);
-            Resistance Lightning = new Resistance("Lightning", 10);
-
-            Weakness Fire = new Weakness("Fire", 1.5);
-            Weakness Water = new Weakness("Water", 2);
-
-            EnergyType LightningE = new EnergyType("Lightning", 10);
-
-
-            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, 2, Water, Fighting);
-            Debug.WriteLine(Pikachu1.EnergyType.Name);
         }
-                public int Electricring(int Lhp)
+        static Resistance FightingR = new Resistance("Fighting", 20);
+        static Resistance LightningR = new Resistance("Lightning", 10);
+
+        static Weakness FireW = new Weakness("Fire", 1.5);
+        static Weakness WaterW = new Weakness("Water", 2);
+
+        static EnergyType LightningE = new EnergyType("Lightning", 10);
+        static EnergyType FireE = new EnergyType("Fire", 10);
+
+
+        static Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, 2, WaterW, FightingR);
+        static Charmeleon Charmeleon1 = new Charmeleon("Charmeleon1", FireE, 60, 2, WaterW, LightningR);
+
+        static Attack ElectricRing = new Attack("ElectricRing", 50);
+        static Attack Pikapunch = new Attack("PikaPunch", 20);
+
+
+  //      Debug.WriteLine(Pikachu1.EnergyType.Name);
+
+        int RhpS = Pikachu1.Hitpoints;
+
+        int LhpS = Charmeleon1.Hitpoints;
+        public int Electricring(int Lhp)
                 {
                     int schade = 50;
 
@@ -55,7 +66,7 @@ namespace OOP_PokeBattle
                     return Rhp;
                 }
 
-                public int Pikapunch(int Lhp)
+                public int pikapunch(int Lhp)
                 {
                     int schade = 20;
 
@@ -86,9 +97,7 @@ namespace OOP_PokeBattle
                     return Rhp;
                 }
 
-        static int RhpS = 60;
-        
-        static int LhpS = 60;
+
 
         public int Rhp = 60;
 
@@ -133,7 +142,7 @@ namespace OOP_PokeBattle
 
             Task.Delay(sleepTime).Wait();
 
-            Lhp = Pikapunch(GetLhp());
+            Lhp = pikapunch(GetLhp());
             getpopulation(Population);
 
             Task.Delay(sleepTime).Wait();
