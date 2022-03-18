@@ -8,8 +8,8 @@ namespace OOP_PokeBattle
 {
     internal class Attack
     {
-        private string AttackName;
-        private int Damage;
+        public string AttackName;
+        public int Damage;
         public Attack(string attackName, int Damage)
         {
             this.AttackName = attackName;

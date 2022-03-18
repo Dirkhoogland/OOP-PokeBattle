@@ -8,8 +8,8 @@ namespace OOP_PokeBattle
 {
     internal class Resistance
     {
-        private string Energytype;
-        private int Value;
+        public string Energytype;
+        public int Value;
 
         public Resistance(string energytype, int Value)
         {
@@ -17,6 +17,8 @@ namespace OOP_PokeBattle
             this.Value = Value; 
 
         }
+
+
         
     }
 }

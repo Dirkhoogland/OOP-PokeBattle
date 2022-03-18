@@ -10,7 +10,7 @@ namespace OOP_PokeBattle
     {
 
         public string Name;
-        private int Value;
+        public int Value;
         public EnergyType(string name, int Value)
         {
             this.Name = name;

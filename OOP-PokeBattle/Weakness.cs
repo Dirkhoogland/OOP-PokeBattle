@@ -8,8 +8,8 @@ namespace OOP_PokeBattle
 {
     internal class Weakness
     {
-        private string Energytype;
-        private double Modifier;
+        public string Energytype;
+        public double Modifier;
 
         public Weakness(string energytype, Double Modifier)
         {

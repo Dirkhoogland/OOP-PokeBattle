@@ -12,21 +12,21 @@ namespace OOP_PokeBattle
             Resistance FightingR = new Resistance("Fighting", 20);
             Resistance LightningR = new Resistance("Lightning", 10);
 
-           Weakness FireW = new Weakness("Fire", 1.5);
+            Weakness FireW = new Weakness("Fire", 1.5);
             Weakness WaterW = new Weakness("Water", 2);
 
-             EnergyType LightningE = new EnergyType("Lightning", 10);
+            EnergyType LightningE = new EnergyType("Lightning", 10);
             EnergyType FireE = new EnergyType("Fire", 10);
 
 
-             Attack ElectricRing = new Attack("ElectricRing", 50);
-             Attack Pikapunch = new Attack("PikaPunch", 20);
+            Attack ElectricRing = new Attack("ElectricRing", 50);
+            Attack Pikapunch = new Attack("PikaPunch", 20);
 
             Attack Flare = new Attack("Flare", 50);
-             Attack Headbutt = new Attack("Headbutt", 20);
+            Attack Headbutt = new Attack("Headbutt", 20);
 
-            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, 2, WaterW, FightingR);
-            Charmeleon Charmeleon1 = new Charmeleon("Charmeleon1", FireE, 60, 2, WaterW, LightningR);
+            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, ElectricRing, WaterW, FightingR);
+            Charmeleon Charmeleon1 = new Charmeleon("Charmeleon1", FireE, 60, Flare, WaterW, LightningR);
      
 
             int RhpS = Pikachu1.getHitpoints();
@@ -46,13 +46,19 @@ namespace OOP_PokeBattle
 
             Task.Delay(sleepTime).Wait();
 
+            int Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
+            Charmeleon1.SetHitpoints(Damage);
 
+
+            Debug.WriteLine(Charmeleon1.getHitpoints());
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+
         //public int Electricring(int Lhp)
         //        {
         //            int schade = 50;
