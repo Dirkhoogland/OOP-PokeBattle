@@ -9,13 +9,13 @@ namespace OOP_PokeBattle
     internal class Pokemon
     {
 
-        public string Name;
-        public string EnergyType;
-        public int Hitpoints;
-        public string Attack;
-        public string Weakness;
-        public string Resistance;
-        public int DamageAttack;
+        private string Name;
+        private string EnergyType;
+        private int Hitpoints;
+        private string Attack;
+        private string Weakness;
+        private string Resistance;
+        private int DamageAttack;
         public int DamageRecieved;
 
         public Pokemon(string Name,string EnergyType, int Hitpoints, string Attack, string Weakness,string Resistance, int DamageAttack, int DamageRecieved)

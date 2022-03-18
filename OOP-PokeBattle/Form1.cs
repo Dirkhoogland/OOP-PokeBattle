@@ -11,6 +11,7 @@ namespace OOP_PokeBattle
             InitializeComponent();
 
         }
+
         static Resistance FightingR = new Resistance("Fighting", 20);
         static Resistance LightningR = new Resistance("Lightning", 10);
 
@@ -28,7 +29,7 @@ namespace OOP_PokeBattle
         static Attack Pikapunch = new Attack("PikaPunch", 20);
 
 
-  //      Debug.WriteLine(Pikachu1.EnergyType.Name);
+        //      Debug.WriteLine(Pikachu1.EnergyType.Name);
 
         int RhpS = Pikachu1.Hitpoints;
 
