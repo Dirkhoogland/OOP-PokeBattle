@@ -6,32 +6,59 @@ using System.Threading.Tasks;
 
 namespace OOP_PokeBattle
 {
-    internal class Pokemon
+    class Pokemon
     {
 
-        private string Name;
-        private string EnergyType;
+        private string name;
+        private EnergyType EnergyType;
         private int Hitpoints;
-        private string Attack;
-        private string Weakness;
-        private string Resistance;
-        private int DamageAttack;
-        public int DamageRecieved;
+        private int Attack;
+        private Weakness Weakness;
+        private Resistance Resistance;
 
-        public Pokemon(string Name,string EnergyType, int Hitpoints, string Attack, string Weakness,string Resistance, int DamageAttack, int DamageRecieved)
+
+        public Pokemon (string name,
+                        EnergyType EnergyType,
+                        int Hitpoints,
+                        int attacks,
+                        Weakness Weakness,
+                        Resistance Resistance)
         {
-            this.Name = Name;
+            this.name = name;
             this.EnergyType = EnergyType;   
             this.Hitpoints = Hitpoints;
-            this.Attack = Attack;   
+            this.Attack = attacks;   
             this.Weakness = Weakness;   
             this.Resistance = Resistance;   
-            this.DamageAttack = DamageAttack;    
-            this.DamageRecieved = DamageRecieved;
-
+        }
+        public string getname()
+        {
+            return name;
+        }
+        public int getHitpoints()
+        {
+            return Hitpoints;
+        }
+        public string GetEnergyType()
+        {
+           
+            return EnergyType.Name.ToString();
+        }
+        public string GetWeakness()
+        {
+            return Weakness.ToString();
         }
 
-        
+        public string GetResistance()
+        {
+            return Resistance.ToString();
+        }
+
+        //private Pokemon AttackOpponent(string attackName, int SchadeDamage)
+        //{
+
+        //    return;
+        //}
 
 
     }

@@ -6,23 +6,19 @@ using System.Threading.Tasks;
 
 namespace OOP_PokeBattle
 {
-    internal class Charmeleon
+    internal class Charmeleon : Pokemon
     {
-        private string Name;
-        private EnergyType EnergyType;
-        private int Hitpoints;
-        private int Attacks;
-        private Weakness Weakness;
-        private Resistance Resistance;
 
-        public Charmeleon(string name, EnergyType EnergyType, int Hitpoints, int attacks, Weakness Weakness, Resistance Resistance)
+
+        public Charmeleon(string name,
+                          EnergyType EnergyType,
+                          int Hitpoints,
+                          int attacks,
+                          Weakness Weakness,
+                          Resistance Resistance) : base(name, EnergyType, Hitpoints, attacks, Weakness, Resistance)
+
         {
-            this.Name = name;
-            this.EnergyType = EnergyType;
-            this.Hitpoints = Hitpoints;
-            this.Attacks = attacks;
-            this.Weakness = Weakness;
-            this.Resistance = Resistance;
+
         }
     }
 }

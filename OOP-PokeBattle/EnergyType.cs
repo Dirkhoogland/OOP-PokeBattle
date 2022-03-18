@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace OOP_PokeBattle
 {
-    internal class EnergyType
+    internal class EnergyType 
     {
 
-        private string Name;
+        public string Name;
         private int Value;
         public EnergyType(string name, int Value)
         {
             this.Name = name;
             this.Value = Value; 
         }
-
-        
 
     }
 }
