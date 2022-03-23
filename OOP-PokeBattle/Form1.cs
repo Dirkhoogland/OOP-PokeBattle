@@ -8,6 +8,12 @@ namespace OOP_PokeBattle
     {
         public Form1() 
         {
+            void fainted(string Pokemonname)
+            {
+                Debug.WriteLine($@"Has fainted{Pokemonname}");
+                this.midtxt.Text = $@"{Pokemonname} has fainted";
+                
+            }
             InitializeComponent();
             Resistance FightingR = new Resistance("Fighting", 20);
             Resistance LightningR = new Resistance("Lightning", 10);
@@ -47,17 +53,83 @@ namespace OOP_PokeBattle
             Task.Delay(sleepTime).Wait();
 
             int Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
-            Charmeleon1.SetHitpoints(Damage);
-
-
+            int Remaining = Charmeleon1.SetHitpoints(Damage);
+            Debug.WriteLine("Damage");
+            Debug.WriteLine(Damage);
+            Debug.WriteLine(Charmeleon1.getname().ToString()); 
             Debug.WriteLine(Charmeleon1.getHitpoints());
+            Debug.WriteLine("Attack");
+            Debug.WriteLine(Pikachu1.getAttack().ToString());
+
+            if (Remaining == 0)
+            {
+                fainted(Charmeleon1.getname().ToString());
+            }
+
+
+            Task.Delay(sleepTime).Wait();
+
+
+            Damage = Charmeleon1.attackopponent(Charmeleon1.getAttack(), Pikachu1);
+            Remaining = Pikachu1.SetHitpoints(Damage);
+
+            Debug.WriteLine("Damage");
+            Debug.WriteLine(Damage);
+            Debug.WriteLine(Pikachu1.getname().ToString());
+            Debug.WriteLine(Pikachu1.getHitpoints());
+            Debug.WriteLine("Attack");
+            Debug.WriteLine(Charmeleon1.getAttack().ToString());
+
+            if (Remaining == 0)
+            {
+                fainted(Pikachu1.getname().ToString());
+            }
+
+            Task.Delay(sleepTime).Wait();
+
+            Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
+            Remaining = Charmeleon1.SetHitpoints(Damage);
+            Debug.WriteLine("Damage");
+            Debug.WriteLine(Damage);
+            Debug.WriteLine(Charmeleon1.getname().ToString());
+            Debug.WriteLine(Charmeleon1.getHitpoints());
+            Debug.WriteLine("Attack");
+            Debug.WriteLine(Pikachu1.getAttack().ToString());
+
+            if (Remaining == 0)
+            {
+                fainted(Charmeleon1.getname().ToString());
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        //this.Rdmgtakentxt.Text = "";
+        //this.Rattacktxt.Text = Pikachu1.getAttack().ToString();
+        //this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}";
 
+        //this.Lattacktxt.Text = "";
+        //this.Ldmgtaken.Text = Damage.ToString();
+        //this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
+        //-----
+        //this.Rdmgtakentxt.Text = Damage.ToString();
+        //this.Rattacktxt.Text = " ";
+        //this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}";
+
+        //this.Lattacktxt.Text = Charmeleon1.getAttack().ToString();
+        //this.Ldmgtaken.Text = " ";
+        //this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
+        //----
+        //this.Rdmgtakentxt.Text = "";
+        //this.Rattacktxt.Text = Pikachu1.getAttack().ToString();
+        //this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}";
+
+        //this.Lattacktxt.Text = "";
+        //this.Ldmgtaken.Text = Damage.ToString();
+        //this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
+        //-----
 
         //public int Electricring(int Lhp)
         //        {

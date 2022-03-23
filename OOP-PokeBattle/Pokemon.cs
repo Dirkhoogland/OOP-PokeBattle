@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,8 +63,19 @@ namespace OOP_PokeBattle
         public int SetHitpoints(int Healthremaining)
         {
             int newhp = this.Hitpoints - Healthremaining;
-            newhp = this.Hitpoints;
-            return this.Hitpoints;
+            this.Hitpoints -= Healthremaining;
+
+
+            if (newhp > 0)
+            {
+
+
+                return 0;
+            }
+            else
+            {
+                return this.Hitpoints;
+            }
         }
 
         public int attackopponent(Attack attackname, Pokemon opponent)
@@ -89,12 +101,7 @@ namespace OOP_PokeBattle
                 return Damage;
             }
         }
-
-        //private Pokemon AttackOpponent(string attackName, int SchadeDamage)
-        //{
-
-        //    return;
-        //}
+        
 
 
     }
