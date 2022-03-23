@@ -10,9 +10,10 @@ namespace OOP_PokeBattle
         {
             void fainted(string Pokemonname)
             {
-                Debug.WriteLine($@"Has fainted{Pokemonname}");
+                Debug.WriteLine($@"{Pokemonname} Has fainted");
                 this.midtxt.Text = $@"{Pokemonname} has fainted";
-                
+                Pokemon.SetAmount();
+                Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
             }
             InitializeComponent();
             Resistance FightingR = new Resistance("Fighting", 20);
@@ -57,15 +58,14 @@ namespace OOP_PokeBattle
             Debug.WriteLine("Damage");
             Debug.WriteLine(Damage);
             Debug.WriteLine(Charmeleon1.getname().ToString()); 
-            Debug.WriteLine(Charmeleon1.getHitpoints());
+            Debug.WriteLine($@"{ Charmeleon1.getHitpoints()} hitpoints");
             Debug.WriteLine("Attack");
-            Debug.WriteLine(Pikachu1.getAttack().ToString());
+            Debug.WriteLine(Pikachu1.GetAttackName().ToString());
 
-            if (Remaining == 0)
+            if (Remaining < 0)
             {
                 fainted(Charmeleon1.getname().ToString());
             }
-
 
             Task.Delay(sleepTime).Wait();
 
@@ -73,14 +73,14 @@ namespace OOP_PokeBattle
             Damage = Charmeleon1.attackopponent(Charmeleon1.getAttack(), Pikachu1);
             Remaining = Pikachu1.SetHitpoints(Damage);
 
-            Debug.WriteLine("Damage");
-            Debug.WriteLine(Damage);
-            Debug.WriteLine(Pikachu1.getname().ToString());
-            Debug.WriteLine(Pikachu1.getHitpoints());
-            Debug.WriteLine("Attack");
-            Debug.WriteLine(Charmeleon1.getAttack().ToString());
 
-            if (Remaining == 0)
+            Debug.WriteLine($@"{ Damage} Damage");
+            Debug.WriteLine(Pikachu1.getname().ToString());
+            Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints");
+            Debug.WriteLine("Attack");
+            Debug.WriteLine(Charmeleon1.GetAttackName().ToString());
+
+            if (Remaining < 0)
             {
                 fainted(Pikachu1.getname().ToString());
             }
@@ -92,11 +92,11 @@ namespace OOP_PokeBattle
             Debug.WriteLine("Damage");
             Debug.WriteLine(Damage);
             Debug.WriteLine(Charmeleon1.getname().ToString());
-            Debug.WriteLine(Charmeleon1.getHitpoints());
+            Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints");
             Debug.WriteLine("Attack");
-            Debug.WriteLine(Pikachu1.getAttack().ToString());
+            Debug.WriteLine(Pikachu1.GetAttackName().ToString());
 
-            if (Remaining == 0)
+            if (Remaining < 0)
             {
                 fainted(Charmeleon1.getname().ToString());
             }

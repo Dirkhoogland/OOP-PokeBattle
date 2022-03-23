@@ -16,7 +16,7 @@ namespace OOP_PokeBattle
         private Attack Attack;
         private Weakness Weakness;
         private Resistance Resistance;
-
+        private static int Amount = 0;
 
         public Pokemon (string name,
                         EnergyType EnergyType,
@@ -30,9 +30,24 @@ namespace OOP_PokeBattle
             this.Hitpoints = Hitpoints;
             this.Attack = attacks;   
             this.Weakness = Weakness;   
-            this.Resistance = Resistance;   
+            this.Resistance = Resistance;
+            Pokemon.Amount++;
+            
         }
 
+        public string GetAttackName()
+        {
+            return Attack.AttackName;
+        }
+        public static int GetAmount()
+        {
+            return Pokemon.Amount;
+        }
+
+        public static void SetAmount()
+        {
+           Pokemon.Amount--;
+        }
         public Attack getAttack()
         {
             return Attack;  
