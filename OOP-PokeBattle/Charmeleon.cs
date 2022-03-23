@@ -20,5 +20,10 @@ namespace OOP_PokeBattle
         {
 
         }
+
+        public string BodyHeat()
+        {   string Heat = "32";
+            return Heat;
+        }
     }
 }

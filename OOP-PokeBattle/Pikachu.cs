@@ -20,7 +20,10 @@ namespace OOP_PokeBattle
 
         }
 
-
+        public String Electicity()
+        { String Elec = "10";
+            return Elec;
+        }
 
 
 

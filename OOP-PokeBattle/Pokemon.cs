@@ -95,7 +95,7 @@ namespace OOP_PokeBattle
 
         public int attackopponent(Attack attackname, Pokemon opponent)
         {
-            if (this.EnergyType.ToString() == opponent.Weakness.ToString())
+            if (this.EnergyType.Name.ToString() == opponent.Weakness.Energytype.ToString())
             {
                double Damage = this.Attack.Damage * opponent.Weakness.Modifier;
 
@@ -103,7 +103,7 @@ namespace OOP_PokeBattle
                 return (int)Damage;
 
             }
-            if (this.EnergyType.ToString() == opponent.Resistance.ToString())
+            if (this.EnergyType.Name.ToString() == opponent.Resistance.Energytype.ToString())
             {
                 int Damage = this.Attack.Damage - opponent.Resistance.Value;
 

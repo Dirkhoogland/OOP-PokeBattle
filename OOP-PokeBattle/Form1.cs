@@ -32,7 +32,7 @@ namespace OOP_PokeBattle
             Attack Flare = new Attack("Flare", 50);
             Attack Headbutt = new Attack("Headbutt", 20);
 
-            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60, ElectricRing, WaterW, FightingR);
+            Pikachu Pikachu1 = new Pikachu("Pikachu1", LightningE, 60,ElectricRing, WaterW, FightingR);
             Charmeleon Charmeleon1 = new Charmeleon("Charmeleon1", FireE, 60, Flare, WaterW, LightningR);
      
 
@@ -57,10 +57,10 @@ namespace OOP_PokeBattle
             int Remaining = Charmeleon1.SetHitpoints(Damage);
             Debug.WriteLine("Damage");
             Debug.WriteLine(Damage);
-            Debug.WriteLine(Charmeleon1.getname().ToString()); 
-            Debug.WriteLine($@"{ Charmeleon1.getHitpoints()} hitpoints");
-            Debug.WriteLine("Attack");
-            Debug.WriteLine(Pikachu1.GetAttackName().ToString());
+            Debug.WriteLine(Charmeleon1.getname().ToString());
+            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+            else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
+            Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
 
             if (Remaining < 0)
             {
@@ -76,9 +76,10 @@ namespace OOP_PokeBattle
 
             Debug.WriteLine($@"{ Damage} Damage");
             Debug.WriteLine(Pikachu1.getname().ToString());
-            Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints");
+            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+            else{Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints");}
             Debug.WriteLine("Attack");
-            Debug.WriteLine(Charmeleon1.GetAttackName().ToString());
+            Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName().ToString()}");
 
             if (Remaining < 0)
             {
@@ -92,14 +93,20 @@ namespace OOP_PokeBattle
             Debug.WriteLine("Damage");
             Debug.WriteLine(Damage);
             Debug.WriteLine(Charmeleon1.getname().ToString());
-            Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints");
-            Debug.WriteLine("Attack");
-            Debug.WriteLine(Pikachu1.GetAttackName().ToString());
+            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+            else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
+            Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
+
 
             if (Remaining < 0)
             {
                 fainted(Charmeleon1.getname().ToString());
             }
+
+
+
+            Debug.WriteLine($@"Extra Pikachu {Pikachu1.Electicity().ToString()} and Charmeleon {Charmeleon1.BodyHeat().ToString()}");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
