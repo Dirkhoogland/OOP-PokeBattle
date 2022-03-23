@@ -50,58 +50,69 @@ namespace OOP_PokeBattle
 
             int sleepTime = 3000;
 
-
-            Task.Delay(sleepTime).Wait();
-
-            int Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
-            int Remaining = Charmeleon1.SetHitpoints(Damage);
-            Debug.WriteLine("Damage");
-            Debug.WriteLine(Damage);
-            Debug.WriteLine(Charmeleon1.getname().ToString());
-            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
-            else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
-            Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
-
-            if (Remaining < 0)
+            int  turn()
             {
-                fainted(Charmeleon1.getname().ToString());
+                Task.Delay(sleepTime).Wait();
+
+                int Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
+                int Remaining = Charmeleon1.SetHitpoints(Damage);
+                Debug.WriteLine("Damage");
+                Debug.WriteLine(Damage);
+                Debug.WriteLine(Charmeleon1.getname().ToString());
+                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+                else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
+                Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
+
+                if (Remaining < 0)
+                {
+                    fainted(Charmeleon1.getname().ToString());
+                    return 1;
+                }
+
+                Task.Delay(sleepTime).Wait();
+
+
+                Damage = Charmeleon1.attackopponent(Charmeleon1.getAttack(), Pikachu1);
+                Remaining = Pikachu1.SetHitpoints(Damage);
+
+
+                Debug.WriteLine($@"{ Damage} Damage");
+                Debug.WriteLine(Pikachu1.getname().ToString());
+                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+                else { Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints"); }
+                Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName().ToString()}");
+
+                if (Remaining < 0)
+                {
+                    fainted(Pikachu1.getname().ToString());
+                    return 2;
+                }
+
+                return 3;
             }
 
-            Task.Delay(sleepTime).Wait();
 
-
-            Damage = Charmeleon1.attackopponent(Charmeleon1.getAttack(), Pikachu1);
-            Remaining = Pikachu1.SetHitpoints(Damage);
-
-
-            Debug.WriteLine($@"{ Damage} Damage");
-            Debug.WriteLine(Pikachu1.getname().ToString());
-            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
-            else{Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints");}
-            Debug.WriteLine("Attack");
-            Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName().ToString()}");
-
-            if (Remaining < 0)
+            int Pokecount = turn();
+            if (Pokecount > 2)
             {
-                fainted(Pikachu1.getname().ToString());
+                turn();
             }
+            else { Debug.WriteLine("Klaar"); }
 
-            Task.Delay(sleepTime).Wait();
-
-            Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
-            Remaining = Charmeleon1.SetHitpoints(Damage);
-            Debug.WriteLine("Damage");
-            Debug.WriteLine(Damage);
-            Debug.WriteLine(Charmeleon1.getname().ToString());
-            if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
-            else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
-            Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
+            //Damage = Pikachu1.attackopponent(Pikachu1.getAttack(), Charmeleon1);
+            //Remaining = Charmeleon1.SetHitpoints(Damage);
+            //Debug.WriteLine("Damage");
+            //Debug.WriteLine(Damage);
+            //Debug.WriteLine(Charmeleon1.getname().ToString());
+            //if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+            //else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
+            //Debug.WriteLine($@"attack = { Pikachu1.GetAttackName().ToString()}");
 
 
-            if (Remaining < 0)
-            {
-                fainted(Charmeleon1.getname().ToString());
-            }
+            //if (Remaining < 0)
+            //{
+            //    fainted(Charmeleon1.getname().ToString());
+            //}
 
 
 
