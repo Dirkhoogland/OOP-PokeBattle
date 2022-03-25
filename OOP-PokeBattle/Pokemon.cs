@@ -6,7 +6,7 @@
         private string name;
         private EnergyType EnergyType;
         private int Hitpoints;
-        private Attack Attack;
+        private List<Attack> Attack;
         private Weakness Weakness;
         private Resistance Resistance;
         private static int Amount = 0;
@@ -14,7 +14,7 @@
         public Pokemon (string name,
                         EnergyType EnergyType,
                         int Hitpoints,
-                        Attack attacks,
+                        List<Attack> attacks,
                         Weakness Weakness,
                         Resistance Resistance)
         {
@@ -28,9 +28,9 @@
             
         }
 
-        public string GetAttackName()
+        public string GetAttackName(int Index)
         {
-            return Attack.AttackName;
+            return Attack[Index].AttackName;
         }
         public static int GetAmount()
         {
@@ -41,9 +41,9 @@
         {
            Pokemon.Amount--;
         }
-        public Attack getAttack()
+        public Attack getAttack(int Index)
         {
-            return Attack;  
+            return Attack[Index];  
         }
         public string getname()
         {
@@ -90,7 +90,7 @@
         {
             if (this.EnergyType.Name.ToString() == opponent.Weakness.Energytype.ToString())
             {
-               double Damage = this.Attack.Damage * opponent.Weakness.Modifier;
+               double Damage = attackname.Damage * opponent.Weakness.Modifier;
 
 
                 return (int)Damage;
@@ -98,13 +98,13 @@
             }
             if (this.EnergyType.Name.ToString() == opponent.Resistance.Energytype.ToString())
             {
-                int Damage = this.Attack.Damage - opponent.Resistance.Value;
+                int Damage = attackname.Damage - opponent.Resistance.Value;
 
                 return Damage;
             }
             else
             {
-                int Damage = this.Attack.Damage;
+                int Damage = attackname.Damage;
 
                 return Damage;
             }

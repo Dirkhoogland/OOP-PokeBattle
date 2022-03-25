@@ -8,7 +8,7 @@ namespace OOP_PokeBattle
         public Pikachu(string name,
                        EnergyType EnergyType,
                        int Hitpoints,
-                       Attack attacks,
+                       List<Attack> attacks,
                        Weakness Weakness,
                        Resistance Resistance) : base(name, EnergyType, Hitpoints, attacks, Weakness, Resistance)
         {
