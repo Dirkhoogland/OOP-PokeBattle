@@ -42,21 +42,21 @@ namespace OOP_PokeBattle
             Charmeleon Charmeleon1 = new Charmeleon("Charmeleon1", FireE, 60,Attacklist2, WaterW, LightningR);
      
             // Max hp apart variable stoppen voor beide pokemons,
-            int RhpS = Pikachu1.getHitpoints();
+            int RhpS = Pikachu1.GetHitpoints();
 
-            int LhpS = Charmeleon1.getHitpoints();
+            int LhpS = Charmeleon1.GetHitpoints();
             // Form text opzetten met de namen, energytypes en hitpoints
-            this.Rnametxt.Text = Pikachu1.getname();
-            this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}";
+            this.Rnametxt.Text = Pikachu1.GetName();
+            this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.GetHitpoints()} / {RhpS}";
             this.Rtypetxt.Text = Pikachu1.GetEnergyType().ToString();
 
-            this.Lnametxt.Text = Charmeleon1.getname();
-            this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
+            this.Lnametxt.Text = Charmeleon1.GetName();
+            this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.GetHitpoints()} / {LhpS}";
             this.Ltypetxt.Text = Charmeleon1.GetEnergyType().ToString();
             //Delay tussen aanvallen/updates
             int sleepTime = 3000;
             // Turn function die speelt wanneer de applicatie opstart en de gegevens in de debug en op het sherm toont, sherm is alleen voor huidige aanvallen en active hitpoints
-             int turn()
+             int Turn()
             {
                 
                 //Laat de applicatie voor 3000 miliseconden wachten met opstart
@@ -65,31 +65,31 @@ namespace OOP_PokeBattle
                 Random rand = new Random();
                 int Num = rand.Next(0,2);
                 // Dit vraagt de attackopponent functie aan met het randm number van hiervoor in de index voor te kiezen welke aanval, ook stuurt het de opponent mee 
-                int Damage = Pikachu1.attackopponent(Pikachu1.getAttack(Num), Charmeleon1);
+                int Damage = Pikachu1.AttackOpponent(Pikachu1.GetAttack(Num), Charmeleon1);
                 // functie voor hoeveel hp de opponent overheeft
                 int Remaining = Charmeleon1.SetHitpoints(Damage);
                 // voor in de debug te schrijven voor de damage, naam, attack en hitpoints
                 Debug.WriteLine($@"{Damage} Damage");
-                Debug.WriteLine(Charmeleon1.getname().ToString());
+                Debug.WriteLine(Charmeleon1.GetName().ToString());
                 // kijkt of de hitpoints -0 zijn en zet daar dan een 0
                 if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints"); }
-                else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
+                else { Debug.WriteLine($@"{Charmeleon1.GetHitpoints()} Hitpoints"); }
                 // zet de attacknaam in de debug
                 Debug.WriteLine($@"attack = { Pikachu1.GetAttackName(Num).ToString()}");
 
                 // zet de damage, naam en hitpoints op het scherm, maakt deze leeg als het niet van toepassing is op pikachu's turn
                 this.Rdmgtakentxt.Text = "";
                 this.Rattacktxt.Text = Pikachu1.GetAttackName(Num).ToString();
-                this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}";
+                this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.GetHitpoints()} / {RhpS}";
 
                 this.Lattacktxt.Text = "";
                 this.Ldmgtaken.Text = $@"{Damage.ToString()} Damage taken";
                 if (Remaining <= 0) { this.Lhitpointstxt.Text = $@"Hitpoints {0} / {LhpS}"; }
-                else { this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}"; }
+                else { this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.GetHitpoints()} / {LhpS}"; }
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
                 if (Remaining <= 0)
                 {
-                    fainted(Charmeleon1.getname().ToString());
+                    fainted(Charmeleon1.GetName().ToString());
                     return 1;
                 }
                 // delay tussen pikachu's en charmeleons turn
@@ -97,39 +97,39 @@ namespace OOP_PokeBattle
                 // nieuw random number voor charmeleons attack
                 int Num2 = rand.Next(0, 2);
                 // Charmeleon's attack op Pikachu en hp calculatie 
-                Damage = Charmeleon1.attackopponent(Charmeleon1.getAttack(Num2), Pikachu1);
+                Damage = Charmeleon1.AttackOpponent(Charmeleon1.GetAttack(Num2), Pikachu1);
                 Remaining = Pikachu1.SetHitpoints(Damage);
 
                 // schrijft de damage en naam in de debug
                 Debug.WriteLine($@"{ Damage} Damage");
-                Debug.WriteLine(Pikachu1.getname().ToString());
+                Debug.WriteLine(Pikachu1.GetName().ToString());
                 // kijkt of de hp -0 zo ja zet het - in de hp debug
                 if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
-                else { Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints remaining"); }
+                else { Debug.WriteLine($@"{Pikachu1.GetHitpoints()} Hitpoints remaining"); }
                 // zet attack naam in de debug
                 Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName(Num2).ToString()}");
                 // laat op het scherm de gegevens zien voor charmeleons turn
                 this.Rdmgtakentxt.Text = $@"{Damage.ToString()} Damage taken";
                 this.Rattacktxt.Text = " ";
                 if (Remaining <= 0) { this.Rhitpointstxt.Text = $@"Hitpoints {0} / {RhpS}"; }
-                else { this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}"; }
+                else { this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.GetHitpoints()} / {RhpS}"; }
                 this.Lattacktxt.Text = $@"Used {Charmeleon1.GetAttackName(Num2).ToString()}";
                 this.Ldmgtaken.Text = " ";
-                this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
+                this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.GetHitpoints()} / {LhpS}";
                 // checkt of pikachu dood is
                 if (Remaining <= 0)
                 {
-                    fainted(Pikachu1.getname().ToString());
+                    fainted(Pikachu1.GetName().ToString());
 
                     return 1;
 
                 }
                 // Als geen van beide pokemon dood zijn speelt de turn functie zich opnieuw af 
-                turn();
+                Turn();
                 return 2;
             }
-            int alive = turn();
-            if (alive == 1) { Debug.WriteLine("Er leeft nog 1 Pokemon"); }
+            int Alive = Turn();
+            if (Alive == 1) { Debug.WriteLine("Er leeft nog 1 Pokemon"); }
             // write de extra lijnen voor pikachu en charmeleon
             Debug.WriteLine($@"Extra Pikachu {Pikachu1.Electicity().ToString()} and Charmeleon {Charmeleon1.BodyHeat().ToString()}");
         }

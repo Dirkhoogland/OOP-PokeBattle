@@ -3,7 +3,7 @@
     class Pokemon
     {
 
-        private string name;
+        private string Name;
         private EnergyType EnergyType;
         private int Hitpoints;
         private List<Attack> Attack;
@@ -18,7 +18,7 @@
                         Weakness Weakness,
                         Resistance Resistance)
         {
-            this.name = name;
+            this.Name = name;
             this.EnergyType = EnergyType;   
             this.Hitpoints = Hitpoints;
             this.Attack = attacks;   
@@ -41,15 +41,15 @@
         {
            Pokemon.Amount--;
         }
-        public Attack getAttack(int Index)
+        public Attack GetAttack(int Index)
         {
             return Attack[Index];  
         }
-        public string getname()
+        public string GetName()
         {
-            return name;
+            return Name;
         }
-        public int getHitpoints()
+        public int GetHitpoints()
         {
             return Hitpoints;
         }
@@ -76,8 +76,6 @@
 
             if (newhp > 0)
             {
-
-
                 return 0;
             }
             else
@@ -86,7 +84,7 @@
             }
         }
 
-        public int attackopponent(Attack attackname, Pokemon opponent)
+        public int AttackOpponent(Attack attackname, Pokemon opponent)
         {
             if (this.EnergyType.Name.ToString() == opponent.Weakness.Energytype.ToString())
             {
