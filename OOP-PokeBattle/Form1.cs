@@ -1,5 +1,3 @@
-
-
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -58,8 +56,10 @@ namespace OOP_PokeBattle
             //Delay tussen aanvallen/updates
             int sleepTime = 3000;
             // Turn function die speelt wanneer de applicatie opstart en de gegevens in de debug en op het sherm toont, sherm is alleen voor huidige aanvallen en active hitpoints
-            int  turn()
-            {   //Laat de applicatie voor 3000 miliseconden wachten met opstart
+             int turn()
+            {
+                
+                //Laat de applicatie voor 3000 miliseconden wachten met opstart
                 Task.Delay(sleepTime).Wait();
                 // Dit maakt een random nummer aan tussen de 0 en 1 voor welke aanval de pokemon moet doen
                 Random rand = new Random();
@@ -72,7 +72,7 @@ namespace OOP_PokeBattle
                 Debug.WriteLine($@"{Damage} Damage");
                 Debug.WriteLine(Charmeleon1.getname().ToString());
                 // kijkt of de hitpoints -0 zijn en zet daar dan een 0
-                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
+                if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints"); }
                 else { Debug.WriteLine($@"{Charmeleon1.getHitpoints()} Hitpoints"); }
                 // zet de attacknaam in de debug
                 Debug.WriteLine($@"attack = { Pikachu1.GetAttackName(Num).ToString()}");
@@ -84,10 +84,10 @@ namespace OOP_PokeBattle
 
                 this.Lattacktxt.Text = "";
                 this.Ldmgtaken.Text = $@"{Damage.ToString()} Damage taken";
-                if (Remaining < 0) { this.Lhitpointstxt.Text = $@"Hitpoints {0} / {LhpS}"; }
+                if (Remaining <= 0) { this.Lhitpointstxt.Text = $@"Hitpoints {0} / {LhpS}"; }
                 else { this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}"; }
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
-                if (Remaining < 0)
+                if (Remaining <= 0)
                 {
                     fainted(Charmeleon1.getname().ToString());
                     return 1;
@@ -104,29 +104,32 @@ namespace OOP_PokeBattle
                 Debug.WriteLine($@"{ Damage} Damage");
                 Debug.WriteLine(Pikachu1.getname().ToString());
                 // kijkt of de hp -0 zo ja zet het - in de hp debug
-                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
+                if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
                 else { Debug.WriteLine($@"{Pikachu1.getHitpoints()} Hitpoints remaining"); }
                 // zet attack naam in de debug
                 Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName(Num2).ToString()}");
                 // laat op het scherm de gegevens zien voor charmeleons turn
                 this.Rdmgtakentxt.Text = $@"{Damage.ToString()} Damage taken";
                 this.Rattacktxt.Text = " ";
-                if (Remaining < 0) { this.Rhitpointstxt.Text = $@"Hitpoints {0} / {RhpS}"; }
+                if (Remaining <= 0) { this.Rhitpointstxt.Text = $@"Hitpoints {0} / {RhpS}"; }
                 else { this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.getHitpoints()} / {RhpS}"; }
                 this.Lattacktxt.Text = $@"Used {Charmeleon1.GetAttackName(Num2).ToString()}";
                 this.Ldmgtaken.Text = " ";
                 this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.getHitpoints()} / {LhpS}";
                 // checkt of pikachu dood is
-                if (Remaining < 0)
+                if (Remaining <= 0)
                 {
                     fainted(Pikachu1.getname().ToString());
-                    return 2;
+
+                    return 1;
+
                 }
                 // Als geen van beide pokemon dood zijn speelt de turn functie zich opnieuw af 
                 turn();
-                return 3;
+                return 2;
             }
-            turn();
+            int alive = turn();
+            if (alive == 1) { Debug.WriteLine("Er leeft nog 1 Pokemon"); }
             // write de extra lijnen voor pikachu en charmeleon
             Debug.WriteLine($@"Extra Pikachu {Pikachu1.Electicity().ToString()} and Charmeleon {Charmeleon1.BodyHeat().ToString()}");
         }
