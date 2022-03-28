@@ -72,7 +72,7 @@ namespace OOP_PokeBattle
                 Debug.WriteLine($@"{Damage} Damage");
                 Debug.WriteLine(Charmeleon1.GetName().ToString());
                 // kijkt of de hitpoints -0 zijn en zet daar dan een 0
-                if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints"); }
+                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
                 else { Debug.WriteLine($@"{Charmeleon1.GetHitpoints()} Hitpoints"); }
                 // zet de attacknaam in de debug
                 Debug.WriteLine($@"attack = { Pikachu1.GetAttackName(Num).ToString()}");
@@ -84,10 +84,10 @@ namespace OOP_PokeBattle
 
                 this.Lattacktxt.Text = "";
                 this.Ldmgtaken.Text = $@"{Damage.ToString()} Damage taken";
-                if (Remaining <= 0) { this.Lhitpointstxt.Text = $@"Hitpoints {0} / {LhpS}"; }
+                if (Remaining < 0) { this.Lhitpointstxt.Text = $@"Hitpoints {0} / {LhpS}"; }
                 else { this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.GetHitpoints()} / {LhpS}"; }
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
-                if (Remaining <= 0)
+                if (Remaining < 0)
                 {
                     fainted(Charmeleon1.GetName().ToString());
                     return 1;
@@ -104,20 +104,20 @@ namespace OOP_PokeBattle
                 Debug.WriteLine($@"{ Damage} Damage");
                 Debug.WriteLine(Pikachu1.GetName().ToString());
                 // kijkt of de hp -0 zo ja zet het - in de hp debug
-                if (Remaining <= 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
+                if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
                 else { Debug.WriteLine($@"{Pikachu1.GetHitpoints()} Hitpoints remaining"); }
                 // zet attack naam in de debug
                 Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName(Num2).ToString()}");
                 // laat op het scherm de gegevens zien voor charmeleons turn
                 this.Rdmgtakentxt.Text = $@"{Damage.ToString()} Damage taken";
                 this.Rattacktxt.Text = " ";
-                if (Remaining <= 0) { this.Rhitpointstxt.Text = $@"Hitpoints {0} / {RhpS}"; }
+                if (Remaining < 0) { this.Rhitpointstxt.Text = $@"Hitpoints {0} / {RhpS}"; }
                 else { this.Rhitpointstxt.Text = $@"Hitpoints {Pikachu1.GetHitpoints()} / {RhpS}"; }
                 this.Lattacktxt.Text = $@"Used {Charmeleon1.GetAttackName(Num2).ToString()}";
                 this.Ldmgtaken.Text = " ";
                 this.Lhitpointstxt.Text = $@"Hitpoints {Charmeleon1.GetHitpoints()} / {LhpS}";
                 // checkt of pikachu dood is
-                if (Remaining <= 0)
+                if (Remaining < 0)
                 {
                     fainted(Pikachu1.GetName().ToString());
 
