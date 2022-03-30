@@ -11,7 +11,6 @@ namespace OOP_PokeBattle
             {
                 Debug.WriteLine($@"{Pokemonname} Has fainted");
                 this.midtxt.Text = $@"{Pokemonname} has fainted";
-                Pokemon.SetAmount();
                 Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
             }
             InitializeComponent();
@@ -93,6 +92,7 @@ namespace OOP_PokeBattle
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
                 if (Remaining < 0)
                 {
+                    Charmeleon1.Fainted();
                     fainted(Charmeleon1.GetName().ToString());
                     return 1;
                 }
@@ -112,6 +112,7 @@ namespace OOP_PokeBattle
                 // kijkt of de hp -0 zo ja zet het - in de hp debug
                 if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
                 else { Debug.WriteLine($@"{Pikachu1.GetHitpoints()} Hitpoints remaining"); }
+                
                 // laat op het scherm de gegevens zien voor charmeleons turn
                 this.Rdmgtakentxt.Text = $@"{Damage.ToString()} Damage taken";
                 this.Rattacktxt.Text = " ";
@@ -123,6 +124,7 @@ namespace OOP_PokeBattle
                 // checkt of pikachu dood is
                 if (Remaining < 0)
                 {
+                    Pikachu1.Fainted();
                     fainted(Pikachu1.GetName().ToString());
 
                     return 1;

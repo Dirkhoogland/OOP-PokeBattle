@@ -11,7 +11,7 @@
         private Resistance Resistance;
         private static int Amount = 0;
 
-        public Pokemon (string name,
+        public Pokemon(string name,
                         EnergyType EnergyType,
                         int Hitpoints,
                         List<Attack> attacks,
@@ -19,18 +19,18 @@
                         Resistance Resistance)
         {
             this.Name = name;
-            this.EnergyType = EnergyType;   
+            this.EnergyType = EnergyType;
             this.Hitpoints = Hitpoints;
-            this.Attack = attacks;   
-            this.Weakness = Weakness;   
+            this.Attack = attacks;
+            this.Weakness = Weakness;
             this.Resistance = Resistance;
             Pokemon.Amount++;
-            
+
         }
 
         public string GetAttackName(int Index)
         {
-            return Attack[Index].AttackName;
+            return Attack[Index].GetAttackNameAttack();
         }
         public static int GetAmount()
         {
@@ -39,11 +39,11 @@
 
         public static void SetAmount()
         {
-           Pokemon.Amount--;
+            Pokemon.Amount--;
         }
         public Attack GetAttack(int Index)
         {
-            return Attack[Index];  
+            return Attack[Index];
         }
         public string GetName()
         {
@@ -55,17 +55,17 @@
         }
         public string GetEnergyType()
         {
-           
-            return EnergyType.Name.ToString();
+
+            return EnergyType.EnergyName.ToString();
         }
         public string GetWeakness()
         {
-            return Weakness.Energytype.ToString();
+            return Weakness.GetEnergytypeWeakness().ToString();
         }
 
         public string GetResistance()
         {
-            return Resistance.Energytype.ToString();
+            return Resistance.GetEnergytypeResistance().ToString();
         }
 
         public int SetHitpoints(int Healthremaining)
@@ -73,41 +73,33 @@
             int newhp = this.Hitpoints - Healthremaining;
             this.Hitpoints -= Healthremaining;
 
-
-            if (newhp > 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return this.Hitpoints;
-            }
+            return (newhp > 0) ? 0 : this.Hitpoints;
         }
 
         public int AttackOpponent(Attack attackname, Pokemon opponent)
         {
-            if (this.EnergyType.Name.ToString() == opponent.Weakness.Energytype.ToString())
+            if (this.EnergyType.EnergyName.ToString() == opponent.Weakness.GetEnergytypeWeakness().ToString())
             {
-               double Damage = attackname.Damage * opponent.Weakness.Modifier;
-
-
-                return (int)Damage;
+                return (int)(attackname.GetDamage() * opponent.Weakness.GetModifier());
 
             }
-            if (this.EnergyType.Name.ToString() == opponent.Resistance.Energytype.ToString())
+            if (this.EnergyType.EnergyName.ToString() == opponent.Resistance.GetEnergytypeResistance().ToString())
             {
-                int Damage = attackname.Damage - opponent.Resistance.Value;
+                return attackname.GetDamage() - opponent.Resistance.GetValue();
 
-                return Damage;
+
             }
             else
             {
-                int Damage = attackname.Damage;
-
-                return Damage;
+                return attackname.GetDamage();
             }
         }
-        
+        public void Fainted()
+        {
+            population();
+        }
+        static void population(){ Pokemon.SetAmount(); }
+
 
 
     }

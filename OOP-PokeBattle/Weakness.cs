@@ -2,8 +2,8 @@
 {
     internal class Weakness
     {
-        public string Energytype;
-        public double Modifier;
+        private string Energytype;
+        private double Modifier;
 
         public Weakness(string energytype, Double Modifier)
         {
@@ -11,6 +11,14 @@
             this.Modifier = Modifier;
         }
         
+        public string GetEnergytypeWeakness()
+        {
+            return Energytype;
+        }
 
+        public double GetModifier()
+        {
+            return Modifier;
+        }
     }
 }

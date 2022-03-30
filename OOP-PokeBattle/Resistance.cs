@@ -8,8 +8,8 @@ namespace OOP_PokeBattle
 {
     internal class Resistance
     {
-        public string Energytype;
-        public int Value;
+        private string Energytype;
+        private int Value;
 
         public Resistance(string energytype, int Value)
         {
@@ -18,7 +18,14 @@ namespace OOP_PokeBattle
 
         }
 
+        public string GetEnergytypeResistance()
+        {
+            return Energytype;
+        }
+        public int GetValue()
+        {
+            return Value;   
+        }
 
-        
     }
 }
