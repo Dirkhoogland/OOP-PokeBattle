@@ -56,7 +56,10 @@ namespace OOP_PokeBattle
             //Delay tussen aanvallen/updates
             int sleepTime = 3000;
             // Turn function die speelt wanneer de applicatie opstart en de gegevens in de debug en op het sherm toont, sherm is alleen voor huidige aanvallen en active hitpoints
-             int Turn()
+            Debug.WriteLine($@"Hitpoints {Pikachu1.GetName()} {Pikachu1.GetHitpoints()}");
+            Debug.WriteLine($@"Hitpoints {Charmeleon1.GetName()} {Charmeleon1.GetHitpoints()}");
+            
+            int Turn()
             {
                 
                 //Laat de applicatie voor 3000 miliseconden wachten met opstart
@@ -69,13 +72,14 @@ namespace OOP_PokeBattle
                 // functie voor hoeveel hp de opponent overheeft
                 int Remaining = Charmeleon1.SetHitpoints(Damage);
                 // voor in de debug te schrijven voor de damage, naam, attack en hitpoints
-                Debug.WriteLine($@"{Damage} Damage");
+                Debug.WriteLine($@"{Damage} Damage to {Charmeleon1.GetName()}");
+                // zet de attacknaam in de debug
+                Debug.WriteLine($@"attack = { Pikachu1.GetAttackName(Num).ToString()}");
                 Debug.WriteLine(Charmeleon1.GetName().ToString());
                 // kijkt of de hitpoints -0 zijn en zet daar dan een 0
                 if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints"); }
                 else { Debug.WriteLine($@"{Charmeleon1.GetHitpoints()} Hitpoints"); }
-                // zet de attacknaam in de debug
-                Debug.WriteLine($@"attack = { Pikachu1.GetAttackName(Num).ToString()}");
+
 
                 // zet de damage, naam en hitpoints op het scherm, maakt deze leeg als het niet van toepassing is op pikachu's turn
                 this.Rdmgtakentxt.Text = "";
@@ -101,13 +105,13 @@ namespace OOP_PokeBattle
                 Remaining = Pikachu1.SetHitpoints(Damage);
 
                 // schrijft de damage en naam in de debug
-                Debug.WriteLine($@"{ Damage} Damage");
+                Debug.WriteLine($@"{ Damage} Damage to {Pikachu1.GetName()}");
+                // zet attack naam in de debug
+                Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName(Num2).ToString()}");
                 Debug.WriteLine(Pikachu1.GetName().ToString());
                 // kijkt of de hp -0 zo ja zet het - in de hp debug
                 if (Remaining < 0) { Debug.WriteLine($@"0 Hitpoints remaining"); }
                 else { Debug.WriteLine($@"{Pikachu1.GetHitpoints()} Hitpoints remaining"); }
-                // zet attack naam in de debug
-                Debug.WriteLine(@$"Attack = {Charmeleon1.GetAttackName(Num2).ToString()}");
                 // laat op het scherm de gegevens zien voor charmeleons turn
                 this.Rdmgtakentxt.Text = $@"{Damage.ToString()} Damage taken";
                 this.Rattacktxt.Text = " ";
