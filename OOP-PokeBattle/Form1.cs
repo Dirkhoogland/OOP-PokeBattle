@@ -7,12 +7,7 @@ namespace OOP_PokeBattle
     {
         public Form1() 
         {   //Fainted function voor als er een pokemon dood is gegaan
-            void fainted(string Pokemonname)
-            {
-                Debug.WriteLine($@"{Pokemonname} Has fainted");
-                this.midtxt.Text = $@"{Pokemonname} has fainted";
-                Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
-            }
+
             InitializeComponent();
             // Resistance types aanmaken, naam + value
             Resistance FightingR = new Resistance("Fighting", 20);
@@ -92,8 +87,8 @@ namespace OOP_PokeBattle
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
                 if (Remaining < 0)
                 {
-                    Charmeleon1.Fainted();
-                    fainted(Charmeleon1.GetName().ToString());
+                    Charmeleon1.Fainted(Charmeleon1.GetName());
+                   
                     return 1;
                 }
                 // delay tussen pikachu's en charmeleons turn
@@ -124,8 +119,8 @@ namespace OOP_PokeBattle
                 // checkt of pikachu dood is
                 if (Remaining < 0)
                 {
-                    Pikachu1.Fainted();
-                    fainted(Pikachu1.GetName().ToString());
+                    Pikachu1.Fainted(Pikachu1.GetName());
+                   
 
                     return 1;
 

@@ -1,4 +1,5 @@
-﻿namespace OOP_PokeBattle
+﻿using System.Diagnostics;
+namespace OOP_PokeBattle
 {
     class Pokemon
     {
@@ -94,8 +95,10 @@
                 return attackname.GetDamage();
             }
         }
-        public void Fainted()
+        public void Fainted(string name)
         {
+            Debug.WriteLine($@"{name} Has fainted");
+            Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
             population();
         }
         static void population(){ Pokemon.SetAmount(); }
