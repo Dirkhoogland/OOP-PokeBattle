@@ -87,8 +87,9 @@ namespace OOP_PokeBattle
                 // checkt op charmeleon dood is, zo ja gaat het naar de fainted function 
                 if (Remaining < 0)
                 {
-                    Charmeleon1.Fainted(Charmeleon1.GetName());
-                   
+                    string faintmessage = Charmeleon1.Fainted(Charmeleon1.GetName());
+                    Debug.WriteLine(faintmessage);
+                    Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
                     return 1;
                 }
                 // delay tussen pikachu's en charmeleons turn

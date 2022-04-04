@@ -95,16 +95,18 @@ namespace OOP_PokeBattle
                 return attackname.GetDamage();
             }
         }
-        public void Fainted(string name)
+        public string Fainted(string name)
         {
-            Debug.WriteLine($@"{name} Has fainted");
+            
             
             population();
+
+            return $@"{name} Has fainted";
         }
         static void population()
         {
             Pokemon.SetAmount();
-            Debug.WriteLine($@"{Pokemon.GetAmount()} amount of Pokemon");
+            
         }
 
 
